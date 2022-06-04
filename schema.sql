@@ -17,12 +17,18 @@ ALTER TABLE animals ADD species varchar(255);
 
 -- Query Multiple Tables
 create table owners(
-    id INT GENERATED ALWAYS AS IDENTITY,
+    id int serial primary key,
     full_name varchar(255),
     age int
 )
 
 create table species(
-    id INT GENERATED ALWAYS AS IDENTITY,
+    id int serial primary key,
     name varchar(255)
 )
+
+alter table animals drop column id;
+alter table animals add column id SERIAL PRIMARY KEY;
+alter table animals add column species_id int references species(id);
+alter table animals add column owner_id int references owners(id);
+alter table animals add column species_id int references species(id);
