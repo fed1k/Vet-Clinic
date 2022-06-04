@@ -51,3 +51,37 @@ select * from animals;
 update animals set weight_kg = weight_kg * - 1 where weight_kg < 0;
 select * from animals;
 commit;
+
+-- Owners data
+insert into owners(full_name, age) values('Sam Smith', 34);
+insert into owners(full_name, age) values('Jennifer Orwell', 19);
+insert into owners(full_name, age) values('Bob', 45);
+insert into owners(full_name, age) values('Melody Pond', 77);
+insert into owners(full_name, age) values('Dean Winchester', 14);
+insert into owners(full_name, age) values('Jodie Whittaker', 38);
+
+-- Species data
+insert into species(name) values('Digimon');
+insert into species(name) values('Pokemon');
+UPDATE animals
+SET species_id = 2
+WHERE name LIKE '%mon';
+UPDATE animals
+SET species_id = 1
+WHERE species_id IS NULL;
+UPDATE animals
+SET owner_id = 1
+WHERE name = 'Agumon';
+UPDATE animals
+SET owner_id = 2
+WHERE name = 'Pikachu' OR name = 'Gabumon';
+UPDATE animals
+SET owner_id = 3
+WHERE name = 'Devimon' OR name = 'Plantmon';
+UPDATE animals
+SET owner_id = 4
+WHERE name = 'Charmander' OR name = 'Squirtle'
+OR name = 'Blossom';
+UPDATE animals
+SET owner_id = 5
+WHERE name = 'Angemon' OR name = 'Boarmon';
