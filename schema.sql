@@ -11,3 +11,5 @@ CREATE TABLE animals(
     weight_kg decimal NOT NULL,
     species text NOT NULL
 );
+
+ALTER TABLE animals ADD species varchar(255);
