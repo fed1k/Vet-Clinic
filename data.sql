@@ -22,3 +22,32 @@ INSERT INTO animals(id, name, date_of_birth, escape_attempts, neutered, weight_k
 VALUES(10, 'Blossom', date '1998-10-13', 3, true, 17);
 INSERT INTO animals(id, name, date_of_birth, escape_attempts, neutered, weight_kg)
 VALUES(11, 'Ditto', date '2022-05-14', 4, true, 22);
+
+BEGIN;
+SAVEPOINT speciespoint;
+UPDATE animals SET species = 'unspecified';
+SELECT * FROM ANIMALS;
+ROLLBACK TO SAVEPOINT speciespoint;
+COMMIT;
+
+BEGIN;
+UPDATE animals SET species = 'digimon' WHERE name LIKE '%mon%';
+update animals set species = 'pokemon' where species is null;
+commit;
+select * from animals;
+
+begin;
+delete from animals;
+select * from animals;
+rollback;
+select * from animals;
+
+begin;
+delete from animals where date_of_birth > '2022-01-01';
+select * from animals;
+SAVEPOINT deleted;
+update animals set weight_kg = weight_kg * - 1;
+select * from animals;
+update animals set weight_kg = weight_kg * - 1 where weight_kg < 0;
+select * from animals;
+commit;
