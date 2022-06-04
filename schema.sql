@@ -13,3 +13,16 @@ CREATE TABLE animals(
 );
 
 ALTER TABLE animals ADD species varchar(255);
+
+
+-- Query Multiple Tables
+create table owners(
+    id INT GENERATED ALWAYS AS IDENTITY,
+    full_name varchar(255),
+    age int
+)
+
+create table species(
+    id INT GENERATED ALWAYS AS IDENTITY,
+    name varchar(255)
+)
