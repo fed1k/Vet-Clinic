@@ -17,13 +17,13 @@ ALTER TABLE animals ADD species varchar(255);
 
 -- Query Multiple Tables
 create table owners(
-    id int serial primary key,
+    id serial primary key,
     full_name varchar(255),
     age int
 )
 
 create table species(
-    id int serial primary key,
+    id serial primary key,
     name varchar(255)
 )
 
